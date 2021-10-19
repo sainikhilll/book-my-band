@@ -1,1 +1,1 @@
-# book-my-band
+# Book My Band
