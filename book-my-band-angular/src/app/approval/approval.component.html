@@ -1,0 +1,23 @@
+<br><br><br>
+<div class="container">
+<div class="table-responsive">
+    <table class="table table-sm table-md table-striped">
+        <thead>
+          <tr>
+            <th scope="col">date</th>
+            <th scope="col">Hours</th>
+            <th scope="col">Venue</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let req of listCustomers">
+            <td>{{req.date}}</td>
+            <td>{{req.hours}}</td>
+            <td>{{req.city}}</td>
+            <td><input type="button" [id] = req.id class="btn" style="background-color:#1a0f92; font-weight: bold; color: aliceblue; " value="Approve" (click) = "approve(id)">&nbsp;<input type="button" class="btn" value="Reject" style="font-weight: bold; background-color: #e76158; color:black" (click)="reject()"></td>
+          </tr>
+         
+    </table>
+</div>
+</div>
