@@ -8,6 +8,8 @@ public class BookMyBandRestApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BookMyBandRestApplication.class, args);
+		System.out.println("welcome");
+		
 	}
 
 }

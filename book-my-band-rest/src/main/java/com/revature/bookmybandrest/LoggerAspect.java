@@ -13,12 +13,12 @@ import org.springframework.stereotype.Component;
 public class LoggerAspect {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     
-    @Before(value = "execution(* com.revature.springlearn.*.*.*(..))")
+    @Before(value = "execution(* com.revature.bookmybandrest.*.*.*(..))")
     public void beforeAdvice(JoinPoint joinPoint) {
         LOGGER.info("Start {}", joinPoint.getSignature().toShortString());
     }
 
-    @After(value = "execution(* com.revature.springlearn.*.*.*(..))")
+    @After(value = "execution(* com.revature.bookmybandrest.*.*.*(..))")
     public void afterAdvice(JoinPoint joinPoint) {
         LOGGER.info("End {}", joinPoint.getSignature().toShortString());
     }
