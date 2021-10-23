@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShowBandService } from '../show-band.service';
 import { ShowBands } from './Model/ShowBand';
 
 
@@ -8,16 +9,15 @@ import { ShowBands } from './Model/ShowBand';
   styleUrls: ['./show-bands.component.css']
 })
 export class ShowBandsComponent implements OnInit {
-   bands: ShowBands = {
-    name: "RockOn",
-    member: 7,
-    charge: 50000,
+   bands:any;
 
-   };
-
-  constructor(){}
+  constructor(private service:ShowBandService){}
 
   ngOnInit(): void {
+   let resp = this.service.getBands();
+   console.log(resp);
+   resp.subscribe((data)=>this.bands=data);
+
   }
 
 }

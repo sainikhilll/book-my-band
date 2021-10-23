@@ -1,20 +1,20 @@
-<div class="container" >
-    <h1 class="text-center" >List Of Bands</h1>
-</div>
-<div class="container">
-    <div class="container mt-4"></div>
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Rock</h5>
+<div class="container-fluid mt-3">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" *ngFor="let band of bands">
+            <div class="card bg-dark" style="width: 18rem;">
+                <img src="https://source.unsplash.com/400x300/?band,music" class="card-img-top" alt="...">
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item"><span class="badge bg-info">NAME</span> : {{band.name}} </li>
+                    <li class="list-group-item"><span class="badge bg-success">MEMBERS</span> : {{band.members}} </li>
+                    <li class="list-group-item"><span class="badge bg-dark">CHARGE</span> : {{band.charge}} </li>
+                </ul>
+                <div class="card-body col d-flex justify-content-center">
+                    <a href="#" class="card-link"><span class="badge bg-secondary">Band Details</span></a>
+                </div>
+            </div>
+        </div>
     </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Name : {{bands.name}} </li>
-        <li class="list-group-item">Member : {{bands.member}} </li>
-        <li class="list-group-item">Charge : {{bands.charge}} </li>
-    </ul>
-    <div class="card-body">
-        <a href="#" class="card-link">Band details</a>
-    </div>
-</div>
+
+
+
 </div>
