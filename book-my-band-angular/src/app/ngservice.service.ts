@@ -9,10 +9,10 @@ export class NgserviceService {
 
   constructor(private _http: HttpClient) { }
 
-  fetchRequestList (): Observable<any> {
-    return this._http.get<any>("http://localhost:8080/requests");
-  } 
+  // fetchRequestList (): Observable<any> {
+  //   return this._http.get<any>("http://localhost:8080/requests");
+  // } 
   addRequest (request : Request): Observable<any> {
-    return this._http.post<any>("http://localhost:8080/addrequests",request);
+    return this._http.post<any>("http://localhost:8080/requests",request);
   }
 }

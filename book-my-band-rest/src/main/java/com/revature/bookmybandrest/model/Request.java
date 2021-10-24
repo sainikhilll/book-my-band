@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,11 +34,11 @@ public class Request {
 	@Column(name = "status")
 	private String status;
 	
-	@Column(name = "band_id")
-	private int band_id;
-	
-	@Column(name = "cust_id")
-	private int cust_id;
+//	@Column(name = "band_id")
+//	private int band_id;
+//	
+//	@Column(name = "cust_id")
+//	private int cust_id;
 	
 	public Request(int id, Date date, int hours, String city, String status, int band_id, int cust_id) {
 		super();
@@ -45,19 +47,9 @@ public class Request {
 		this.hours = hours;
 		this.city = city;
 		this.status = status;
-		this.band_id = band_id;
-		this.cust_id = cust_id;
+//		this.band_id = band_id;
+//		this.cust_id = cust_id;
 	}
-
-//	public Request(int id, String name, String date, String playhrs, String venue) {
-//		super();
-//		this.id = id;
-//		this.name = name;
-//		this.date = date;
-//		this.playhrs = playhrs;
-//		this.venue = venue;
-//	}
-//
 	public Request() {
 
 	}
@@ -101,21 +93,48 @@ public class Request {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+//
+//	public int getBand_id() {
+//		return band_id;
+//	}
+//
+//	public void setBand_id(int band_id) {
+//		this.band_id = band_id;
+//	}
+//
+//	public int getCust_id() {
+//		return cust_id;
+//	}
+//
+//	public void setCust_id(int cust_id) {
+//		this.cust_id = cust_id;
+//	}
+	
+	@ManyToOne
+    @JoinColumn(name="band_id")
+	private Band band;
+	@ManyToOne
+    @JoinColumn(name="cust_id")
+	
+	
+	private Customer customer;
 
-	public int getBand_id() {
-		return band_id;
+	public Band getBand() {
+		return band;
 	}
-
-	public void setBand_id(int band_id) {
-		this.band_id = band_id;
+	public void setBand(Band band) {
+		this.band = band;
 	}
-
-	public int getCust_id() {
-		return cust_id;
+	public Customer getCustomer() {
+		return customer;
 	}
-
-	public void setCust_id(int cust_id) {
-		this.cust_id = cust_id;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+	@Override
+	public String toString() {
+		return "Request [id=" + id + ", date=" + date + ", hours=" + hours + ", city=" + city + ", status=" + status
+				+ ", band=" + band + ", customer=" + customer + "]";
 	}
 
 	

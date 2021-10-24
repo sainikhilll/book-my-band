@@ -3,18 +3,21 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Requests } from '../model/request';
 import { NgserviceService } from '../ngservice.service';
 
-export class Request {
-  constructor (
-    public id: number,
-    // public name: string,
-    public date: Date,
-    public hours: number,
-    public city: string
-  ){
-  }
-}
+// export class Request {
+  
+
+//   constructor (
+//     // public id: number,
+//     // // public name: string,
+//     // public date: Date,
+//     // public hours: number,
+//     // public city: string
+//   ){
+//   }
+// }
 
 @Component({
   selector: 'app-send-req',
@@ -24,7 +27,14 @@ export class Request {
 export class SendReqComponent implements OnInit {
   closeResult !: string;
   requests!: Request[];
-  
+  addRequest: Requests = {
+    date: new Date(2020,12,11),
+    hours: 0,
+    city: "",
+    status: "pending",
+    band: {id:1},
+    customer:{id:1}
+  }
   constructor(
     private _service: NgserviceService,
     private _route:Router,
@@ -67,12 +77,20 @@ export class SendReqComponent implements OnInit {
   goToAddRequest (): void {
     this._route.navigate(['/form-req']);
   }
-  onSubmit (f:NgForm) {
-    const url = 'http://localhost:8080/addrequests';
-    this.httpClient.post(url, f.value)
-    .subscribe((result) => {
-      this.ngOnInit();
-    });
-    this.modalService.dismissAll ();
+  // onSubmit (f:NgForm) {
+  //   const url = 'http://localhost:8080/requests';
+  //   this.httpClient.post(url, f.value)
+  //   .subscribe((result) => {
+  //     this.ngOnInit();
+  //   });
+  //   this.modalService.dismissAll ();
+  // }
+  reqButton(): void {
+
+    const url = 'http://localhost:8080/requests';
+      this.httpClient.post(url, this.addRequest)
+      .subscribe((result) => {
+        this.ngOnInit();
+      });
   }
 }
