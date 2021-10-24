@@ -32,11 +32,11 @@ public class RequestController {
 		return requestService.getByBandId(bandId);
 	}
 	
-	@PostMapping
-	public void create(@RequestBody Request request) {
-		LOGGER.debug("Request: {}",request);
-		requestService.save(request);
-	}
+//	@PostMapping
+//	public void create(@RequestBody Request request) {
+//		LOGGER.debug("Request: {}",request);
+//		requestService.save(request);
+//	}
 //	
 //	@PutMapping
 //	public void approve(@RequestBody Request request) {

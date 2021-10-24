@@ -1,18 +1,22 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BandLogin } from './approval/model/bandLogin';
 import { Bandrequests } from './approval/model/bandRequets';
+import { CurrentBand } from './approval/model/currentBand';
 import { CustomerDetails } from './approval/model/customerDetails';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BandService {
-
+  currentLoggedInBand!:CurrentBand;
   constructor(private httpclient: HttpClient) { }
 
   getBandDetails(): Observable<any>{
-    let param1 = new HttpParams().set('bandId',1);
+     console.log( localStorage.getItem('cband'));
+    this.currentLoggedInBand = JSON.parse( localStorage.getItem('cband') || '{}')
+    let param1 = new HttpParams().set('bandId',this.currentLoggedInBand.id);
     return this.httpclient.get("http://localhost:8080/bands",{params:param1});
   }
 

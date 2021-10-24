@@ -30,10 +30,10 @@ public class RequestService {
 		return requestRepository.findByBandId(bandId);
 	}
 	
-	public void save(Request request) {
-		LOGGER.debug("request: {}", request);
-		requestRepository.save(request);
-	}
+//	public void save(Request request) {
+//		LOGGER.debug("request: {}", request);
+//		requestRepository.save(request);
+//	}
 	
 	public void updateStatus(Request request) {
 		LOGGER.debug("request: {}", request);

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BandService } from '../band.service';
+import {  Customer } from './model/customer';
 import { Bandrequests } from './model/bandRequets';
 import { CustomerDetails } from './model/customerDetails';
 
@@ -19,21 +20,9 @@ export class ApprovalComponent implements OnInit {
   id!:number;
   listCustomers: Bandrequests[] | undefined;
   approveCust: Bandrequests | undefined;
-  cust: Bandrequests = {
-    id: 1,
-    status: "approved",
-    date: '',
-    hours: 0,
-    city: ''
-  };
+  cust: Bandrequests | undefined 
 
-  rejectcust: Bandrequests = {
-    id: 3,
-    status: "rejected",
-    date: '',
-    hours: 0,
-    city: ''
-  };
+  rejectcust: Bandrequests | undefined
   rejectCust: Bandrequests | undefined;
   constructor(private bandservice: BandService) { }
 
@@ -48,8 +37,16 @@ export class ApprovalComponent implements OnInit {
     
   }
 
-  approve(id: number): void{
-    console.log("approve Clicked",id);
+  approve(rid: number): void{
+    this.cust= {
+      id: rid,
+      customer: Customer,
+      status: "approved",
+      date: '',
+      hours: 0,
+      city: ''
+    };
+    console.log("approve Clicked",rid);
     this.bandservice.approveCustomerRequest(this.cust).subscribe
     (
       data =>
@@ -60,7 +57,16 @@ export class ApprovalComponent implements OnInit {
    this.ngOnInit();
   }
 
-  reject(): void{
+  reject(rid: number): void{
+    this.rejectcust = {
+      id: rid,
+      customer: Customer,
+      status: "rejected",
+      date: '',
+      hours: 0,
+      city: ''
+    };
+    
       this.bandservice.rejectCustomerRequest(this.rejectcust).subscribe
       (
         data =>
