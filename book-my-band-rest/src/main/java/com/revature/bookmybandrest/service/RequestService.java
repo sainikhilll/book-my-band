@@ -25,18 +25,12 @@ public class RequestService {
 	@Autowired
 	private RequestRepository requestRepository;
 	
-//	public List<Request> getByBandId(int bandId, String status){
-//		return requestRepository.findByBandId(bandId,status);
-//	}
+
 	
 	public List<Request> getByBandId(int bandId){
 		return requestRepository.findByBandId(bandId);
 	}
-	
-//	public void save(Request request) {
-//		LOGGER.debug("request: {}", request);
-//		requestRepository.save(request);
-//	}
+
      public Request save(Request request) {
 	    	LOGGER.debug("Start{}",request);
 	    	return requestRepository.save(request);
@@ -54,19 +48,4 @@ public class RequestService {
 	}
 	
 }	
-//@Service
-//public class RequestService {
-//	private static final Logger LOGGER = LoggerFactory.getLogger(RequestService.class);
-//
-//
-//    @Autowired
-//    private RequestRepository requestRepository;
-//    
-//    public List<Request> list() {
-//        LOGGER.info("Start");
-//        return requestRepository.findAll();
-//    }
-//    public Request saverequest(Request request) {
-//    	LOGGER.debug("Start{}",request);
-//    	return requestRepository.save(request);
-//    }
+
