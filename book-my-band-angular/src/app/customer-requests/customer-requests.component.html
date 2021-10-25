@@ -1,11 +1,5 @@
-<nav class="navbar navbar-dark bg-primary">
-    <div class="container-fluid">
-        <h1>BookMyBand</h1>
-        <div class="d-flex">
-            <button class="btn-primary">logout</button>
-        </div>
-    </div>
-</nav>
+<div class="container">
+    <h1 class="text-center">My Requests</h1>
 <table class="table mt-3">
     <thead>
         <tr>
@@ -17,12 +11,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>VsrPadBand</td>
-            <td>11/11/2021</td>
-            <td>hyderbad</td>
-            <td>4</td>
-            <td>approved</td>
+        <tr *ngFor="let req of listCustomerRequests">
+
+            <td>{{req.band.name}}</td>
+            <td>{{req.date}}</td>
+            <td>{{req.city}}</td>
+            <td>{{req.hours}}</td>
+            <td><h3>{{req.status}}</h3></td>
         </tr>
     </tbody>
 </table>
+</div>
