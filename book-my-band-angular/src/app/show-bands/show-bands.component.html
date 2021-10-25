@@ -1,0 +1,20 @@
+<div class="container-fluid mt-3">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" *ngFor="let band of bands">
+            <div class="card bg-dark" style="width: 18rem;">
+                <img src="https://source.unsplash.com/400x300/?band,music" class="card-img-top" alt="...">
+                <ul class="list-group list-group-flush ">
+                    <li class="list-group-item"><span class="badge bg-info">NAME</span> : {{band.name}} </li>
+                    <li class="list-group-item"><span class="badge bg-success">MEMBERS</span> : {{band.members}} </li>
+                    <li class="list-group-item"><span class="badge bg-dark">CHARGE</span> : {{band.charge}} </li>
+                </ul>
+                <div class="card-body col d-flex justify-content-center">
+                    <a href="#" class="card-link"><span class="badge bg-secondary">Band Details</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

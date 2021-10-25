@@ -1,44 +1,69 @@
-<div class="container">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="container ">
+    <div *ngIf="alert" class="text-center" style="color:chartreuse;background-color:green;">
+        Thank you! data has been succesfully uploaded Now Going to login page
+    </div>
+
+<div *ngIf="fail" class="text-center" style="color:rgb(9, 9, 10);background-color:rgb(221, 50, 50);">
+    Sorry For Inconvenience!!Server is not responding,Try again.
+</div>
+</div>
+<div class="container mt-2">
     <div class="col d-flex justify-content-center">
-    <div class="card bg-light border-dark " style="width: 18rem;">
+        <div class="card bg-light border-dark " style="width: 18rem;">
 
-        <div class="card-body">
-            <h3 class="text-center">Customer-signup</h3>
-            <h5 class="text-center ">Form</h5>
-            <form>
-                <div class="form-group row mt-4">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">Name</label>
-                    <div class="col-sm-12">
-                        <input type="text" class="form-control" id="inputEmail3">
+            <div class="card-body">
+                <h3 class="text-center">Customer-signup</h3>
+                <h5 class="text-center ">Form</h5>
+                <form [formGroup]="signup">
+                    <div class="form-group row mt-4">
+                        <label for="inputEmail3" class="col-sm-5 col-form-label">Name</label>
+                        <div class="col-sm-12">
+                            <input type="text" [(ngModel)]="user.name" formControlName="name" class="form-control"
+                                id="inputEmail3" name="name">
+                            <small *ngIf="name.invalid && name.touched" class="text-danger">Name is Mandatory</small>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row mt-3">
-                    <label for="inputEmail3" class="col-sm-5  col-form-label">Email</label>
-                    <div class="col-sm-12">
-                        <input type="email" class="form-control" id="inputEmail3">
-                    </div>
-                </div>
-                <div class="form-group row mt-3">
-                    <label for="inputPassword3" class="col-sm-5 col-form-label">Password</label>
-                    <div class="col-sm-12">
-                        <input type="password" class="form-control" id="inputPassword3">
-                    </div>
-                </div>
-                <div class="form-group row mt-3">
-                    <label for="inputEmail3" class="col-sm-5 col-form-label">Contact</label>
-                    <div class="col-sm-12">
-                        <input type="text" class="form-control" id="inputEmail3">
-                    </div>
-                </div>
+                    <div class="form-group row mt-3">
+                        <label for="inputEmail3" class="col-sm-5  col-form-label">Email</label>
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" formControlName="email" id="inputEmail3"
+                                [(ngModel)]="user.email" name="email">
+
+                            <small *ngIf="email.invalid && email.touched" class="text-danger">Email is
+                                Mandatory</small>
 
 
-                <div class="form-group row mt-3">
-                    <div class="col-sm-10 text-center mx-auto">
-                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                    <div class="form-group row mt-3">
+                        <label for="inputPassword3" class="col-sm-5 col-form-label">Password</label>
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" formControlName="password" id="inputPassword3"
+                                [(ngModel)]="user.password" name="password">
+                            <small *ngIf="password.invalid && password.touched" class="text-danger">Password is
+                                Mandatory</small>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-3">
+                        <label for="inputEmail3" class="col-sm-5 col-form-label">Contact</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" formControlName="contact_number" id="inputEmail3"
+                                [(ngModel)]="user.contact_number" name="contact" >
+                            <small *ngIf="contact_number.invalid && contact_number.touched" class="text-danger">Contact
+                                Number is Mandatory</small>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row mt-3">
+                        <div class="col-sm-10 text-center mx-auto">
+                            <button type="submit" [disabled]="!signup.valid" class="btn btn-primary"
+                                (click)="registerNow()">SignUp</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </div>

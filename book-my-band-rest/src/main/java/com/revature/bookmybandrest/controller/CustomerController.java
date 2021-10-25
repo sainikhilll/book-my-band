@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.bookmybandrest.model.Customer;
 import com.revature.bookmybandrest.repository.CustomerRepository;
+import com.revature.bookmybandrest.service.CustomerService;
 
 
 @RestController
@@ -21,31 +22,31 @@ import com.revature.bookmybandrest.repository.CustomerRepository;
 public class CustomerController {
 	
 	@Autowired
-	private CustomerRepository customerRepository;
+	private CustomerService customerService;
 	
 	@GetMapping
     public List<Customer> getDepartmentList() {
-        return customerRepository.findAll();
+        return customerService.list();
     }
     
     @GetMapping("/{id}")
 	public Customer getDepartment(@PathVariable int id)  {
-		return customerRepository.getById(id);
+		return customerService.getById(id);
 	}
     
     @PostMapping
 	public void create(@RequestBody Customer customer) {
-		customerRepository.save(customer);
+		customerService.save(customer);
 	}
     @PutMapping
   	public void update(@RequestBody Customer customer) {
   		
-  		customerRepository.save(customer);
+  		customerService.save(customer);
   	}
     @DeleteMapping("/{id}")
 	public void delete(@PathVariable int id) {
 		
-		customerRepository.deleteById(id);
+		customerService.delete(id);
 	}
 
 
