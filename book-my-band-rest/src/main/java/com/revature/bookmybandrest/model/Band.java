@@ -11,15 +11,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
 
 @Entity
-@Table(name = "band")
+@Table(name="band")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-
-public class Band {
+@ToString
+public class Band{
+	
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +39,7 @@ public class Band {
 	private String password;
 	
 	@Column(name = "contact_number")
-	private String contact_number;
+	private String contactNumber;
 	
 	@Column(name = "members")
 	private int members;

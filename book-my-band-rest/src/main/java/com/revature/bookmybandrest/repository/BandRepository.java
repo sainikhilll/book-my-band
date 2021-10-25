@@ -8,4 +8,7 @@ import com.revature.bookmybandrest.model.Band;
 @Repository
 public interface BandRepository extends JpaRepository<Band, Integer> {
 
+
+
+
 }

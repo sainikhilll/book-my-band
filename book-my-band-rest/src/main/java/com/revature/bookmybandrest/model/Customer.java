@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "customer")
+@Table(name="customer")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -36,5 +36,9 @@ public class Customer {
 	
 	@Column(name = "contact_number")
     private String contact_number;
+
+	
+
+
 
 }
