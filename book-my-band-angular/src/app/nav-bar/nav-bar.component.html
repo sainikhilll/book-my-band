@@ -40,7 +40,7 @@
           <a class="nav-link " aria-current="page" routerLink="approval" routerLinkActive="active-link">Invitations</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="" routerLinkActive="active-link">Logout</a>
+          <a *ngIf="bandAuthService.isBandLoggedIn" (click)="bandlogout()" class="nav-link " aria-current="page" routerLink="" routerLinkActive="active-link">Logout</a>
         </li>
 
       </ul>

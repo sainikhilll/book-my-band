@@ -15,7 +15,7 @@ export class BandService {
 
   getBandDetails(): Observable<any>{
      console.log( localStorage.getItem('cband'));
-    this.currentLoggedInBand = JSON.parse( localStorage.getItem('cband') || '{}')
+    this.currentLoggedInBand = JSON.parse( localStorage.getItem('cband') || '{}');
     let param1 = new HttpParams().set('bandId',this.currentLoggedInBand.id);
     return this.httpclient.get("http://localhost:8080/bands",{params:param1});
   }

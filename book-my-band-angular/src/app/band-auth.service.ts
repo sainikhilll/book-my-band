@@ -7,12 +7,17 @@ import { BandLoginComponent } from './band-login/band-login.component';
   providedIn: 'root'
 })
 export class BandAuthService {
-  bandSuccessfullyLoggedIn: CurrentBand | undefined;
+  bandLoggedIn: boolean = false;
   constructor(private bandLoginService: BandLoginService) { }
-  login():void {
-    let users =[];
-    this.bandSuccessfullyLoggedIn ;
+  bandlogin():void {
+    this.bandLoggedIn = true ;
    //users = JSON.parse(localStorage.getItem('cband')) ;
   }
 
+  bandlogout():void{
+    this.bandLoggedIn = false;
+  }
+  get isBandLoggedIn():boolean{
+    return this.bandLoggedIn;
+  }
 }

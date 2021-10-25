@@ -17,8 +17,8 @@
             <td>{{req.date}}</td>
             <td>{{req.hours}}</td>
             <td>{{req.city}}</td>
-            <td><a  class="btn" (click) = "approve(req.id)">Approve</a>
-              <a  class="btn"   (click)="reject(req.id)">Reject</a></td>
+            <td><a  class="btn btn-success"  (click) = "approve(req.id)">Approve</a>
+              &nbsp;<a  class="btn btn-danger"    (click)="reject(req.id)">Reject</a></td>
           </tr>
          
     </table>

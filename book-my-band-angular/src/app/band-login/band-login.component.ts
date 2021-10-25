@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BandLogin } from '../approval/model/bandLogin';
 import { CurrentBand } from '../approval/model/currentBand';
+import { BandAuthService } from '../band-auth.service';
 import { BandLoginService } from '../band-login.service';
 
 @Component({
@@ -28,7 +29,7 @@ export class BandLoginComponent implements OnInit {
   }
   error!: HttpErrorResponse;
   fail:boolean = false;
-  constructor(private bandLoginService:BandLoginService ,private _router:Router) { }
+  constructor(private bandLoginService:BandLoginService ,private _router:Router, private bandAuthService: BandAuthService) { }
 
   ngOnInit(): void {
   }
@@ -41,7 +42,7 @@ export class BandLoginComponent implements OnInit {
       console.log(data);
       this.fail=false;
       this._router.navigate(['approval']);
-
+      this.bandAuthService.bandlogin();
     },
     error =>{
       this.fail=true;
