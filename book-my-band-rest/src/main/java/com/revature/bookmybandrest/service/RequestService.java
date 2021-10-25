@@ -2,12 +2,15 @@ package com.revature.bookmybandrest.service;
 
 import java.util.List;
 
+
 import javax.transaction.Transactional;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.revature.bookmybandrest.model.Request;
@@ -34,7 +37,10 @@ public class RequestService {
 //		LOGGER.debug("request: {}", request);
 //		requestRepository.save(request);
 //	}
-	
+     public Request save(Request request) {
+	    	LOGGER.debug("Start{}",request);
+	    	return requestRepository.save(request);
+	    }
 	public void updateStatus(Request request) {
 		LOGGER.debug("request: {}", request);
 		
@@ -47,6 +53,20 @@ public class RequestService {
 		}
 	}
 	
-	
-	
-}
+}	
+//@Service
+//public class RequestService {
+//	private static final Logger LOGGER = LoggerFactory.getLogger(RequestService.class);
+//
+//
+//    @Autowired
+//    private RequestRepository requestRepository;
+//    
+//    public List<Request> list() {
+//        LOGGER.info("Start");
+//        return requestRepository.findAll();
+//    }
+//    public Request saverequest(Request request) {
+//    	LOGGER.debug("Start{}",request);
+//    	return requestRepository.save(request);
+//    }

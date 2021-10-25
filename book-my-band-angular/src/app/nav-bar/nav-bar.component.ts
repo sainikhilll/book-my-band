@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BandAuthService } from '../band-auth.service';
+import { CustomerAuthService } from '../customer-auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,12 +10,22 @@ import { BandAuthService } from '../band-auth.service';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(public bandAuthService:BandAuthService, private router:Router) { }
+  constructor(public bandAuthService:BandAuthService,public custAuthService: CustomerAuthService, private _router:Router) { }
 
   ngOnInit(): void {
   }
   bandlogout():void{
     this.bandAuthService.bandlogout();
-    this.router.navigate(['/app-band-login']);
+    this._router.navigate(['/app-band-login']);
+
+  // constructor(public custAuthService: CustomerAuthService, private _router: Router) { }
+
+  // ngOnInit(): void {
+  // }
+  }
+  custLogout(): void{
+    this.custAuthService.custlogout();
+    this._router.navigate(['/customer-login'])
   }
 }
+

@@ -12,10 +12,21 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BandLoginComponent } from './band-login/band-login.component';
 import { FormsModule } from '@angular/forms';
 
+import { SendReqComponent } from './send-req/send-req.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomerLoginComponent } from './customer-login/customer-login.component';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ApprovalComponent,
+    SendReqComponent,
+    CustomerLoginComponent,
     ShowBandsComponent,
     NavBarComponent,
     BandLoginComponent
@@ -24,7 +35,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    NgbModule,
+    FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [BandService],
   bootstrap: [AppComponent]

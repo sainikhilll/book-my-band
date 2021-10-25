@@ -17,8 +17,13 @@
             Login
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <!-- <li><a class="dropdown-item" routerLink="app-band-login" routerLinkActive="active-link">Band</a></li>
+            <li><a class="dropdown-item" routerLink="" routerLinkActive="active-link">Customer</a></li> -->
+
             <li><a class="dropdown-item" routerLink="app-band-login" routerLinkActive="active-link">Band</a></li>
-            <li><a class="dropdown-item" routerLink="" routerLinkActive="active-link">Customer</a></li>
+            <li><a class="dropdown-item" routerLink="customer-login" routerLinkActive="active-link">Customer</a></li>
+
 
           </ul>
         </li>
@@ -34,13 +39,17 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="" routerLinkActive="active-link">My Requests</a>
+         <a class="nav-link " aria-current="page" routerLink="" routerLinkActive="active-link">My Requests</a> 
         </li>
         <li class="nav-item">
           <a class="nav-link " aria-current="page" routerLink="approval" routerLinkActive="active-link">Invitations</a>
         </li>
         <li class="nav-item">
           <a *ngIf="bandAuthService.isBandLoggedIn" (click)="bandlogout()" class="nav-link " aria-current="page" routerLink="" routerLinkActive="active-link">Logout</a>
+        </li>
+
+        <li class="nav-item">
+          <a *ngIf="custAuthService.isCustLoggedIn"  class="nav-link " (click)="custLogout()" aria-current="page" routerLink="" routerLinkActive="active-link">Logout</a>
         </li>
 
       </ul>

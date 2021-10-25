@@ -1,0 +1,95 @@
+<!-- <h2> REQUESTS </h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Play Hrs</th>
+                <th scope="col">Venue</th>
+            </tr>
+        </thead> -->
+<!-- <tbody>
+            <tr *ngFor="let request of requests">
+                <td><span>{{request.id}}</span></td>
+                <td><span>{{request.name}}</span></td>
+                <td><span>{{request.date}}</span></td>
+                <td><span>{{request.hours}}</span></td>
+                <td><span>{{request.city}}</span></td>
+            </tr>
+        </tbody>
+    </table> -->
+<div class="container">
+    <div class="col d-flex justify-content-center">
+
+        <div class="card border-success " style="width:700px;">
+            <img class="card-img-top"
+                src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1169&q=80"
+                alt="Card image cap">
+            <div class="card-body">
+                <h3 class="card-title">Rock Band</h3>
+                <h5>Asia's most loved band </h5>
+                
+                <button type="button" class="btn btn-success" (click)="open(content)">Send Request</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Make Request</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form novalidate>
+            <!-- <div class="form-group">
+                <label for="name">Full name</label>
+                <div class="input-group">
+                    <input id="name" name="name" class="form-control" ngModel>
+                </div>
+            </div> -->
+            <div class="form-group">
+                <label for="date">Event date</label>
+                <div class="input-group">
+                    <input type="date" id="date" name="date" [(ngModel)]="addRequest.date"
+                    class="form-control">
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="eventdate">Event date</label>
+                <div class="input-group">
+                    <input id="eventdate" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
+                        #dp="ngbDatepicker">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+                    </div>
+                </div>
+            </div> -->
+            <div class="form-group">
+                <label for="hours">Play Time</label>
+                <div class="input-group">
+                    <input id="hours" name="hours" [(ngModel)]="addRequest.hours" class="form-control" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="city">Venue</label>
+                <div class="input-group">
+                    <input id="city" name="city" [(ngModel)]="addRequest.city" class="form-control" >
+                </div>
+            </div>
+            <div>
+                <div class="border text-center" style="padding: 1rem;">
+                    <button data-dismiss="modal" class="btn btn-info" (click)="reqButton()">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div> -->
+</ng-template>
