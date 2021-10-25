@@ -16,7 +16,7 @@ import { ShowBandsComponent } from './show-bands/show-bands.component';
 
 
 const routes: Routes = [
-  {path:'send-req', component: SendReqComponent},
+  {path:'send-req/:id', component: SendReqComponent},
   {path:'customer-login', component: CustomerLoginComponent},
   {path:'show-bands',component:ShowBandsComponent},
   {path:'signup',component:CustomerSignupComponent},

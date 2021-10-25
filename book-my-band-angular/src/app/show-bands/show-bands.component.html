@@ -9,8 +9,8 @@
                     <li class="list-group-item"><span class="badge bg-dark">CHARGE</span> : {{band.charge}} </li>
                 </ul>
                 <div class="card-body col d-flex justify-content-center">
-                    <a routerLink="/send-req/{{band.id}}" routerLinkActive="active-link" class="card-link"><span
-                            class="badge bg-secondary">Band Details</span></a>
+                    <a  class="card-link"><span
+                            class="btn btn-primary" (click)=showbook(band.id)>Band Details</span></a>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CustomerLoginService } from '../customer-login.service';
 import { CurrentCustomer } from '../model/currentCustomer';
@@ -30,7 +30,7 @@ export class SendReqComponent implements OnInit {
   closeResult !: string;
   requests!: Request[];
   currentLoggedInCustomer :CurrentCustomer = JSON.parse( localStorage.getItem('cCust') || '{}')
-
+  //let id : any = this.route.snapshot.paramMap.get('id');
   addRequest: Requests = {
     date: new Date(2020,12,11),
     hours: 0,
@@ -45,14 +45,16 @@ export class SendReqComponent implements OnInit {
     private _route:Router,
     private httpClient: HttpClient,
     private modalService: NgbModal,
-    private custLoginService: CustomerLoginService
+    private custLoginService: CustomerLoginService,
+    private route:ActivatedRoute
     ) { }
-
+    
   ngOnInit(): void {
     // // this._service.fetchRequestList().subscribe(
     // //   data => console.log("response recieved"),
     // //   error => console.log("exception occured")
     // )
+    
     this.getRequests();
   }
  
@@ -93,7 +95,8 @@ export class SendReqComponent implements OnInit {
   //   this.modalService.dismissAll ();
   // }
   reqButton(): void {
-
+    let id : any = this.route.snapshot.paramMap.get('id');
+    this.addRequest.band.id = id;
     const url = 'http://localhost:8080/requests';
       this.httpClient.post(url, this.addRequest)
       .subscribe((result) => {

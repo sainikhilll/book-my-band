@@ -61,7 +61,7 @@ export class CustomerLoginComponent implements OnInit {
       console.log(data);
       this.fail=false;
       this.custAuthService.custlogin();
-      this._router.navigate(['send-req']);
+      this._router.navigate(['show-bands']);
 
     },
     error =>{

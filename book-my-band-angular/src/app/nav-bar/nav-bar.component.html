@@ -14,11 +14,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="show-bands" routerLinkActive="active-link">Home</a>
+          <a *ngIf ="!bandAuthService.isBandLoggedIn" class="nav-link active" aria-current="page" routerLink="show-bands" routerLinkActive="active-link">Home</a>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" routerLink="" routerLinkActive="active-link" id="navbarDropdown"
+          <a *ngIf="!custAuthService.isCustLoggedIn && !bandAuthService.isBandLoggedIn" class="nav-link dropdown-toggle" routerLink="" routerLinkActive="active-link" id="navbarDropdown"
             role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Login
           </a>
@@ -35,20 +35,20 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" routerLink="" routerLinkActive="active-link" id="navbarDropdown"
+          <a  class="nav-link dropdown-toggle"  *ngIf="!custAuthService.isCustLoggedIn && !bandAuthService.isBandLoggedIn" routerLink="" routerLinkActive="active-link" id="navbarDropdown"
             role="button" data-bs-toggle="dropdown" aria-expanded="false">
             SignUp
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul  class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" routerLink="signup" routerLinkActive="active-link">Customer</a></li>
             <li><a class="dropdown-item" routerLink="/band-signup" routerLinkActive="active-link">Band</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="/requests" routerLinkActive="active-link">My Requests</a>
+          <a class="nav-link"  *ngIf="custAuthService.isCustLoggedIn" aria-current="page" routerLink="/requests" routerLinkActive="active-link">My Requests</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" routerLink="approval" routerLinkActive="active-link">Invitations</a>
+          <a class="nav-link"   *ngIf="bandAuthService.isBandLoggedIn" aria-current="page" routerLink="approval" routerLinkActive="active-link">Invitations</a>
         </li>
         <li class="nav-item">
           <a *ngIf="bandAuthService.isBandLoggedIn" (click)="bandlogout()" class="nav-link " aria-current="page" routerLink="" routerLinkActive="active-link">Logout</a>

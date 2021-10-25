@@ -28,8 +28,9 @@
     <div class="container">
             <div id="error" *ngIf = (fail) class="alert alert-danger">Invalid Credentials</div>
         <div class="row  justify-content-center align-items-center">
-            
-            <div class="col-12 col-lg-3 ">
+          <div class="card text-dark border-dark bg-light mb-3" style="max-width: 18rem; height: 23rem;">
+
+            <div class="col-12">
                 <br>
                 <h1 class="display-5 text-center">Customer Login</h1><br>
                 <form action="">
@@ -44,11 +45,14 @@
                     </div>
                     <div class="validation-error" id="passworderror"></div>
                     <br>
+                    <div class="col text-center">
                     <input type="button" class="btn btn-primary" id="submit" (click) = "customerLoginButton()"value="Login">
-                </form>
+                  </div>
+                  </form>
                 <br><br><br><br>
             </div>
             <br>
         </div>
+    </div>
     </div>
 </div>
