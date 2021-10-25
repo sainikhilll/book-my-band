@@ -11,6 +11,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
 
 @Entity
 @Table(name="customer")
@@ -18,6 +20,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Customer {
 	
 	@Id
@@ -35,10 +38,29 @@ public class Customer {
     private String password;
 	
 	@Column(name = "contact_number")
-    private String contact_number;
-
-	
-
+    private String contactNumber;
 
 
 }
+//=======
+//@ToString
+//public class Customer {
+//	
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name = "id")
+//	private int id;
+//	
+//	@Column(name = "name")
+//	private String name;
+//	
+//	@Column(name = "email")
+//	private String email;
+//	
+//	@Column(name = "password")
+//	private String password;
+//	
+//	@Column(name = "contact_number")
+//	private String contactNumber;
+//}
+

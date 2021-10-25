@@ -10,7 +10,7 @@ export class BandsignupService {
   constructor(private http:HttpClient) { }
   public doRegistrationBand(userband:any)
   {
-    return this.http.post("http://localhost:8081/bands",userband,{responseType:'text' as 'json'});
+    return this.http.post("http://localhost:8080/bands/addbands",userband,{responseType:'text' as 'json'});
 
   }
 

@@ -1,8 +1,13 @@
 package com.revature.bookmybandrest.service;
 
+
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +15,7 @@ import com.revature.bookmybandrest.model.Customer;
 import com.revature.bookmybandrest.repository.CustomerRepository;
 
 @Service
+@Transactional
 public class CustomerService {
 	
 	@Autowired
@@ -36,5 +42,10 @@ public class CustomerService {
 	{
 		customerRepository.deleteById(id);
 	}
+
+	public Customer getCustomerByEmail(String email) {
+		return customerRepository.findByEmail(email);
+		}
+
 
 }

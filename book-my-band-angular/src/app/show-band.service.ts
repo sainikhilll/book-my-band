@@ -9,6 +9,6 @@ export class ShowBandService {
   constructor(private http:HttpClient) { }
 
   public getBands(){
-    return this.http.get("http://localhost:8081/bands");
+    return this.http.get("http://localhost:8080/bands");
   }
 }

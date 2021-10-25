@@ -22,7 +22,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Band{
-	
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,3 +47,4 @@ public class Band{
 	private int charge;
 	
 }
+

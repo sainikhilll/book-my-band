@@ -16,7 +16,7 @@ export class CustomerSignupComponent implements OnInit {
     name: "",
     email: "",
     password: "",
-    contact_number: "",
+    contactNumber: "",
   }
 
 
@@ -25,7 +25,7 @@ export class CustomerSignupComponent implements OnInit {
       name: new FormControl('',[ Validators.required,Validators.pattern("[A-Za-z ]{1,32}")]),
       email: new FormControl('', [Validators.required, Validators.pattern("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$")]),
       password: new FormControl('', [Validators.required, Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" )]),
-      contact_number: new FormControl('', [Validators.required, Validators.pattern("[1-9]{1}[0-9]{9}"), Validators.maxLength(10)]),
+      contactNumber: new FormControl('', [Validators.required, Validators.pattern("[1-9]{1}[0-9]{9}"), Validators.maxLength(10)]),
 
     }
   )
@@ -33,7 +33,7 @@ export class CustomerSignupComponent implements OnInit {
 get name(){return this.signup.get('name')}
 get email(){return this.signup.get('email')}
 get password(){return this.signup.get('password')}
-get contact_number(){return this.signup.get('contact_number')}
+get contactNumber(){return this.signup.get('contact_number')}
 
  alert : boolean = false;
  err!:HttpErrorResponse;

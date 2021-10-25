@@ -1,8 +1,7 @@
 package com.revature.bookmybandrest.controller;
 
+
 import java.util.List;
-
-
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,19 +21,51 @@ import com.revature.bookmybandrest.model.Band;
 import com.revature.bookmybandrest.repository.BandRepository;
 import com.revature.bookmybandrest.service.BandService;
 
+import com.revature.bookmybandrest.exception.InvalidCredentialsException;
+import com.revature.bookmybandrest.model.Band;
+import com.revature.bookmybandrest.service.BandService;
+
+//@RestController
+//@RequestMapping("/bands")
+//public class BandController {
+//
+//	
+//	@Autowired
+//	private BandService bandService;
+//	
+//			
+//	  private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+//	
+//
+//	
+//
+//=======
+
 
 @RestController
 @RequestMapping("/bands")
 public class BandController {
+	private static final Logger LOGGER = LoggerFactory.getLogger(BandController.class);
 
-	
 	@Autowired
 	private BandService bandService;
-	
-			
-	  private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
-	
 
+	@PostMapping
+	public Band customerAuthentication(@RequestBody Band band) {
+		LOGGER.debug("Band {}", band);
+		String emailRecived = band.getEmail();
+		String passwordRecived = band.getPassword();
+		Band returnedBand = bandService.getCustomerByEmail(band.getEmail());
+		LOGGER.debug("customerReturned:", returnedBand);
+		if (returnedBand == null) {
+			throw new InvalidCredentialsException("Enter Valid Credntials");
+		} else if (emailRecived.equals(returnedBand.getEmail()) && passwordRecived.equals(returnedBand.getPassword())) {
+			return returnedBand;
+		} else {
+			throw new InvalidCredentialsException("Enter Valid Credntials");
+		}
+
+	}
 	@GetMapping
 	public List<Band> getBand() {
 		return this.bandService.list();
@@ -43,7 +76,7 @@ public class BandController {
 		return bandService.getById(id);
 	}
 
-	@PostMapping
+	@PostMapping("/addbands")
 	public void create(@RequestBody Band band) {
         LOGGER.debug("{}", band.getContactNumber());
 		bandService.save(band);
@@ -60,6 +93,5 @@ public class BandController {
 
 		bandService.delete(id);
 	}
-
-
 }
+

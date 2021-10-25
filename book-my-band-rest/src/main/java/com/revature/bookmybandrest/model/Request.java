@@ -1,5 +1,6 @@
 package com.revature.bookmybandrest.model;
 
+
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -15,18 +16,26 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
 @Entity
 @Table(name = "request")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-
+@ToString
 public class Request {
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
+
+//	@Column(name = "name")
+//	private String name;
+//	
 
 	@Column(name = "date")
 	private Date date;
@@ -39,6 +48,7 @@ public class Request {
 	
 	@Column(name = "status")
 	private String status;
+
 
 	 @ManyToOne
 	    @JoinColumn(name="band_id")

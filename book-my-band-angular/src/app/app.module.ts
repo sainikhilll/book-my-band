@@ -12,7 +12,20 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SignupcustmoerService } from './signupcustmoer.service';
 import { ShowBandService } from './show-band.service';
-import { ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule} from '@angular/forms';;
+
+import { ApprovalComponent } from './approval/approval.component';
+import { BandService } from './band.service';
+
+import { BandLoginComponent } from './band-login/band-login.component';
+import { FormsModule } from '@angular/forms';
+
+import { SendReqComponent } from './send-req/send-req.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomerLoginComponent } from './customer-login/customer-login.component';
+
 
 
 
@@ -25,16 +38,24 @@ import { ReactiveFormsModule} from '@angular/forms';
     CustomerRequestsComponent,
     BandSignupComponent,
     ShowBandsComponent,
-    NavBarComponent
+    NavBarComponent,
 
+    ApprovalComponent,
+    SendReqComponent,
+    CustomerLoginComponent,
+    BandLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    FormsModule,
+    BrowserAnimationsModule,
   ],
-  providers: [ShowBandService,SignupcustmoerService],
+  providers: [ShowBandService,SignupcustmoerService,BandService],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
