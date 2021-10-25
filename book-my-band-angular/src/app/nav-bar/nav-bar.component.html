@@ -43,6 +43,10 @@
           <a class="nav-link " aria-current="page" routerLink="" routerLinkActive="active-link">Logout</a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link " *ngIf="custAuthService.isCustLoggedIn" (click)="custLogout()" aria-current="page" routerLink="" routerLinkActive="active-link">Logout</a>
+        </li>
+
       </ul>
     </div>
   </div>

@@ -8,12 +8,14 @@ import { SendReqComponent } from './send-req/send-req.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CustomerLoginComponent } from './customer-login/customer-login.component';
 
 
 import { ShowBandsComponent } from './show-bands/show-bands.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomerLoginComponent } from './customer-login/customer-login.component';
+
+
 
 @NgModule({
   declarations: [

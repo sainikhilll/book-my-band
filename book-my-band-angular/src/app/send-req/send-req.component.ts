@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CustomerLoginService } from '../customer-login.service';
+import { CurrentCustomer } from '../model/currentCustomer';
 import { Requests } from '../model/request';
 import { NgserviceService } from '../ngservice.service';
 
@@ -27,19 +29,23 @@ import { NgserviceService } from '../ngservice.service';
 export class SendReqComponent implements OnInit {
   closeResult !: string;
   requests!: Request[];
+  currentLoggedInCustomer :CurrentCustomer = JSON.parse( localStorage.getItem('cCust') || '{}')
+
   addRequest: Requests = {
     date: new Date(2020,12,11),
     hours: 0,
     city: "",
     status: "pending",
     band: {id:1},
-    customer:{id:1}
+    customer:{id:this.currentLoggedInCustomer.id}
+
   }
   constructor(
     private _service: NgserviceService,
     private _route:Router,
     private httpClient: HttpClient,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private custLoginService: CustomerLoginService
     ) { }
 
   ngOnInit(): void {
@@ -49,6 +55,7 @@ export class SendReqComponent implements OnInit {
     // )
     this.getRequests();
   }
+ 
   getRequests(){
     this.httpClient.get<any>('http://localhost:8080/requests').subscribe(
       response => {
@@ -92,5 +99,7 @@ export class SendReqComponent implements OnInit {
       .subscribe((result) => {
         this.ngOnInit();
       });
+      this.modalService.dismissAll ();
+      this._route.navigate(['show-bands'])
   }
 }
