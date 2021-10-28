@@ -38,3 +38,10 @@ To-do List:
 * open front-end work in VS Code and backend work in Sts
 * Run the sts project first to start the server
 * Then Run the front-end using (ng serve)in VS code
+
+## Contributors
+
+* Ashu Pandey 
+* Preetham Reddy Kadapana
+* Rushikesh Tokmurke
+* Sree Sai Nikhil
