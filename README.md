@@ -13,6 +13,7 @@ Web application to book music band. Bands can register themselves in this websit
 * MySQL
 * Spring Framework
 * Spring AOP
+* Agile Scrum Methodology
 
 ## Features
 
